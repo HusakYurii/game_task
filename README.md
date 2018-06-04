@@ -1,5 +1,5 @@
 # game_task
-To set the size of a interactive table you need input a matrix size, ex 4:4.
+To set the size of an interactive table you need input a size of a matrix, ex 4:4.
 Pay attention:
   - no spaces are allowed 
   - the digits  are separated by colon ':'
