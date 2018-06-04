@@ -11,9 +11,9 @@ window.onload = function() {
 		let params = inp.split(':');
 		let Rnum = params[0];
 		let Cnum = params[1];
-
+		//Create a table field
 		const table = createField(Rnum,Cnum);
-
+		//Add event to the table
 		table.addEventListener('click', clickHandler);
 
 	}
@@ -21,12 +21,13 @@ window.onload = function() {
 	function createField(Rnum, Cnum) {
 		//Rnum - the number of rows
 		//Cnum - the number of columns
+		// If the table exists - delet it (refresh)
 		if(d.getElementById('table')){
 			d.body.removeChild(d.getElementById('table'));
 		}
 		
 		const newTable = d.createElement('table');
-			  newTable.setAttribute('id', 'table');
+			newTable.setAttribute('id', 'table');
 
 		for(let i = 0; i < Rnum; i++){
 			//Create a new row
@@ -42,7 +43,7 @@ window.onload = function() {
 			newTable.appendChild(newRow);
 		}
 		d.body.insertBefore(newTable, d.body.lastElementChild);
-		return newTable;
+		return newTable; //Return the table
 	}
 
 		//Get a random number 
@@ -67,11 +68,11 @@ window.onload = function() {
 	}
 
 	function clickHandler(event){
-		let tableBody = this; 									//To define the Table itself;
-		let rows = tableBody.rows.length; 					// Number of rows in a table
+		let tableBody = this; 					//To define the Table itself;
+		let rows = tableBody.rows.length; 			// Number of rows in a table
 		let columns = tableBody.rows[0].cells.length; 		//Number of columns in a table
-		let targetR = event.target.parentElement.rowIndex; 		//Row index of the picked cell
-		let targetC = event.target.cellIndex; 					//Column index of the picked cell
+		let targetR = event.target.parentElement.rowIndex; 	//Row index of the picked cell
+		let targetC = event.target.cellIndex; 			//Column index of the picked cell
 
 		matchPic(rows, columns, targetR, targetC, tableBody);
 
@@ -80,7 +81,7 @@ window.onload = function() {
 	function matchPic(rNum, cNum,i,j,table){
 		let currEl = table.rows[i].cells[j];
 			currEl.style.backgroundColor ='grey';
-			
+		//If there are not cells (like at the corner) - set null
 		let upEl = i == 0 ? null : table.rows[i-1].cells[j];
 		let rightEl = j == cNum-1 ? null : table.rows[i].cells[j+1];
 		let downEl = i == rNum-1 ? null : table.rows[i+1].cells[j];	
