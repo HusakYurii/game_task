@@ -3,8 +3,7 @@ window.onload = function() {
 	const d = document;
 
 	let btn = d.querySelector('.settings > button');
-
-		btn.addEventListener('click', setFunc);
+            btn.addEventListener('click', setFunc);
 
 	function setFunc(){
 		let inp = d.querySelector('.settings > input').value;
@@ -27,7 +26,7 @@ window.onload = function() {
 		}
 		
 		const newTable = d.createElement('table');
-			newTable.setAttribute('id', 'table');
+		      newTable.setAttribute('id', 'table');
 
 		for(let i = 0; i < Rnum; i++){
 			//Create a new row
@@ -36,9 +35,9 @@ window.onload = function() {
 			for(let j = 0; j < Cnum; j++ ){
 				//Create a new cell
 				let newCell = d.createElement('td');
-					//Insert a random icon
-					newCell.innerHTML = getPicture(getRandom(1,4));
-					newRow.appendChild(newCell);
+				//Insert a random icon
+				newCell.innerHTML = getPicture(getRandom(1,4));
+				newRow.appendChild(newCell);
 			}
 			newTable.appendChild(newRow);
 		}
@@ -78,9 +77,9 @@ window.onload = function() {
 
 	}
 
-	function matchPic(rNum, cNum,i,j,table){
+	function matchPic(rNum, cNum,i,j,table){ // Number of Rows, Number of Columns, current Row index, current Column index, table
 		let currEl = table.rows[i].cells[j];
-			currEl.style.backgroundColor ='grey';
+		    currEl.style.backgroundColor ='grey'; // if the color is grey it means that this cell is already matched
 		//If there are not cells (like at the corner) - set null
 		let upEl = i == 0 ? null : table.rows[i-1].cells[j];
 		let rightEl = j == cNum-1 ? null : table.rows[i].cells[j+1];
