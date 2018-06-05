@@ -5,7 +5,6 @@ Pay attention:
   - the digits  are separated by colon ':'
   
 After you press the button Start/Refresh it will create a table.
-The 'click' event will be added to the table.
-The main function which searches and matches the same icons is matchPic()
+The 'click' event is added to the table, it calles the main function which searches and matches the same icons 'matchPic()'
 
 https://husakyurii.github.io/game_task/.
